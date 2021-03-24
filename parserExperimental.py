@@ -9,7 +9,7 @@ def main():
         data_string += character
 
   data_string_unicode = data_string.encode('utf-8')
-  with open("markers", "w", encoding='utf-8') as f:
+  with open("markers", "w") as f:
     f.write(data_string_unicode)
   #   data_as_int = list(data)
   #   for i in range(len(data_as_int)):
