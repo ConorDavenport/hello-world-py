@@ -8,7 +8,8 @@ def main():
       if ((character >= 32 and character <= 127) or character == 10):
         print(type(character))
       else:
-        print('false' + type(character))
+        print('false')
+        print(type(character))
   #   data_as_int = list(data)
   #   for i in range(len(data_as_int)):
   #     if ((data_as_int[i] < 32 or data_as_int[i] > 126) and data_as_int[i] != 10):
