@@ -8,7 +8,7 @@ def main():
       if ((character >= b'\x20' and character <= b'\x7F') or character == b'\x0A'):
         data_string += character
 
-  data_string_unicode = data_string.encode(encoding='UTF-8')
+  data_string_unicode = data_string.encode('UTF-8')
   with open("markers", "w") as f:
     f.write(data_string_unicode)
   #   data_as_int = list(data)
