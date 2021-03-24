@@ -1,12 +1,12 @@
 import sys
 
 def main():
-  data_string = b''
+  data_string = ""
   with open(sys.argv[1], "rb") as f:
     data = f.read()
     for character in data:
       if ((character >= b'\x20' and character <= b'\x7F') or character == b'\x0A'):
-        print(character)
+        data_string += character
 
   #   data_as_int = list(data)
   #   for i in range(len(data_as_int)):
