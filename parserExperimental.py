@@ -17,6 +17,7 @@ def main():
       if ('TODO' in line):
         matches = line.split(r'TODO')
         todo_message = matches[1]
+        print(todo_message)
 
 if __name__ == "__main__":
   main()
