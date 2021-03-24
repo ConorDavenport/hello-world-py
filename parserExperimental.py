@@ -7,7 +7,7 @@ def main():
     for character in data:
       if ((character >= b'\x20' and character <= b'\x7F') or character == b'\x0A'):
         data_string += character
-  print(data_string)
+
   print(type(data_string))
   with open("markers", "w") as f:
     f.write(data_string)
