@@ -4,9 +4,10 @@ def main():
   data_string = b''
   with open(sys.argv[1], "rb") as f:
     data = f.read()
-    for character in data:
-      if ((character >= 32 and character <= 127) or character == 10):
-        print(character)
+    print(data)
+    # for character in data:
+    #   if ((character >= 32 and character <= 127) or character == 10):
+    #     print(character)
   #   data_as_int = list(data)
   #   for i in range(len(data_as_int)):
   #     if ((data_as_int[i] < 32 or data_as_int[i] > 126) and data_as_int[i] != 10):
