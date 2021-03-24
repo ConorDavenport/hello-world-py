@@ -12,5 +12,11 @@ def main():
   with open("markers", "w") as f:
     f.write(data_string_unicode)
 
+  with open ("markers", "r") as markers:
+    for line in markers.readlines():
+      if (line.match(r'TODO')):
+        matches = line.split(r'TODO')
+        print(matches)
+
 if __name__ == "__main__":
   main()
