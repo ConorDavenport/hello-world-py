@@ -6,7 +6,7 @@ def main():
     data = f.read()
     for character in data:
       if ((character >= 32 and character <= 127) or character == 10):
-        print(character)
+        print(type(character))
       else:
         print('false')
   #   data_as_int = list(data)
