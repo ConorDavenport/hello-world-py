@@ -18,6 +18,8 @@ def main():
         matches = line.split(r'TODO')
         todo_message = matches[1]
         print(todo_message)
+      if ('Error' in line):
+        print(line)
 
 if __name__ == "__main__":
   main()
