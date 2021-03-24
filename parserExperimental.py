@@ -5,7 +5,7 @@ def main():
   with open(sys.argv[1], "rb") as f:
     data = f.read()
     for character in data:
-      if ((character >= 32 and character <= 127) or character == 10):
+      if ((character >= b'\x20' and character <= b'\x7F') or character == b'\x0A'):
         print(type(character))
       else:
         print('false')
