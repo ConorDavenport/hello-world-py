@@ -14,7 +14,7 @@ def main():
 
   with open ("markers", "r") as markers:
     for line in markers.readlines():
-      if (line.match(r'TODO')):
+      if ('TODO' in line):
         matches = line.split(r'TODO')
         print(matches)
 
