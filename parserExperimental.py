@@ -16,7 +16,7 @@ def main():
     for line in markers.readlines():
       if ('TODO' in line):
         matches = line.split(r'TODO')
-        print(matches)
+        print(matches[1])
 
 if __name__ == "__main__":
   main()
