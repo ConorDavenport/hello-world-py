@@ -8,6 +8,9 @@ def main():
       if ((character >= b'\x20' and character <= b'\x7F') or character == b'\x0A'):
         data_string += character
   print(data_string)
+
+  with open("markers", "w") as f:
+    f.write(data_string)
   #   data_as_int = list(data)
   #   for i in range(len(data_as_int)):
   #     if ((data_as_int[i] < 32 or data_as_int[i] > 126) and data_as_int[i] != 10):
