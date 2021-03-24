@@ -4,8 +4,8 @@ def main():
   data_string = b''
   with open(sys.argv[1], "rb") as f:
     data = f.read()
-    print(data)
-    # for character in data:
+    for character in data:
+      print(character)
     #   if ((character >= 32 and character <= 127) or character == 10):
     #     print(character)
   #   data_as_int = list(data)
