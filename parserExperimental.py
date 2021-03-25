@@ -20,7 +20,7 @@ def main():
         todo_info = matches[0]
         print(todo_info)
         file_path = re.match(r'mpfs.*(?=org)', todo_info)
-        print(file_path.group())
+        print(file_path)
         todo_message = matches[1]
         print(todo_message)
       if ('fatal error' in line):
