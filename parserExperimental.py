@@ -19,6 +19,7 @@ def main():
         matches = line.split(r'TODO')
         todo_info = matches[0]
         file_path = re.match(r'mpfs.*/.*(?=org)', todo_info)
+        print(file_path)
         todo_message = matches[1]
         print(todo_message)
       if ('fatal error' in line):
