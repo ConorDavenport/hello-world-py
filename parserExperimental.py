@@ -18,7 +18,7 @@ def main():
       if ('TODO' in line and 'mpfs_hal' in line):
         matches = line.split(r'TODO ')
         todo_info = matches[0]
-        file_path = re.search(r'mpfs.*(?=org)', todo_info)
+        file_path = re.search(r'mpfs.*?\..', todo_info)
         if 'lineNumber' in todo_info:
           line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', todo_info).group()
         else:
@@ -29,7 +29,7 @@ def main():
       if ('fatal error' in line and 'mpfs' in line):
         matches = line.split(r'fatal error: ')
         error_info = matches[0]
-        file_path = re.search(r'mpfs.*(?=org)', error_info)
+        file_path = re.search(r'mpfs.*?\..', error_info)
         if 'lineNumber' in error_info:
           line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', error_info).group()
         else:
