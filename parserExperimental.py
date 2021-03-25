@@ -20,6 +20,7 @@ def main():
           matches = line.split(r'TODO')
         elif 'fatal error' in line:
           matches = line.split(r'fatal error')
+          print(line)
 
         message_info = matches[0]
         file_path = re.search(r'mpfs.*(?=org)', message_info)
