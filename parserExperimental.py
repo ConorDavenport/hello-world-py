@@ -16,9 +16,9 @@ def main():
   with open ("markers", "r") as markers:
     for line in markers.readlines():
       if ('TODO' in line and 'mpfs_hal' in line):
-        file_path = re.match(r'lineNumber.*/', line)
-        print(file_path.group())
         matches = line.split(r'TODO')
+        todo_info = matches[0]
+        file_path = re.match(r'mpfs.*/.*(?=org)', todo_info)
         todo_message = matches[1]
         print(todo_message)
       if ('fatal error' in line):
