@@ -18,7 +18,6 @@ def main():
       if ('TODO' in line and 'mpfs_hal' in line):
         matches = line.split(r'TODO')
         todo_info = matches[0]
-        print(todo_info)
         file_path = re.search(r'mpfs.*(?=org)', todo_info)
         print(file_path.group())
         todo_message = matches[1]
