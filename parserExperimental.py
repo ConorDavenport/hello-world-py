@@ -20,7 +20,7 @@ def main():
         todo_info = matches[0]
         file_path = re.search(r'mpfs.*(?=org)', todo_info)
         line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', todo_info).group()
-        print(file_path.group() + '[' + line_number + ']')
+        print('TODO ' + file_path.group() + '[' + line_number + ']')
         todo_message = matches[1]
         print(todo_message)
       if ('fatal error' in line):
@@ -28,7 +28,7 @@ def main():
         error_info = matches[0]
         file_path = re.search(r'mpfs.*(?=org)', error_info)
         line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', error_info).group()
-        print(file_path.group() + '[' + line_number + ']')
+        print('ERROR ' + file_path.group() + '[' + line_number + ']')
         error_message = matches[1]
         print(error_message)
 
