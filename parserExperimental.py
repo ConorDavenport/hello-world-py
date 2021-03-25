@@ -15,7 +15,7 @@ def main():
   with open ("markers", "r") as markers:
     for line in markers.readlines():
       if ('TODO' in line and 'mpfs_hal' in line):
-        file_path = lien.match(r'lineNumber.*/')
+        file_path = line.match(r'lineNumber.*/')
         print(file_path)
         matches = line.split(r'TODO')
         todo_message = matches[1]
