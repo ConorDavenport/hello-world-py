@@ -1,0 +1,44 @@
+;/mpfs-hal-coremark/src/platform/mpfs_hal/common/mss_clint.h-org.eclipse.cdt.core.tasksourceIdCDTcharStartuserEditablecharEnd1message@TODO verify line above guaranteed and best way to achieve resultpriority
+lineNumberFxj>/mpfs-hal-coremark/src/platform/mpfs_hal/common/mss_l2_cache.c.sourceIdCDTcharStart=userEditablecharEndZmessageTODO - remove, no longer usedpriority
+lineNumberxj=/mpfs-hal-coremark/src/platform/mpfs_hal/common/nwc/mss_ddr.c/sourceIdCDTcharStartuserEditablecharEndmessage6TODO pause removed at Alister's request for test. Willpriority
+lineNumberzxj0sourceIdCDTcharStartuserEditablecharEndmessage#TODO Theses checks was added by DCTpriority
+lineNumbercxj1sourceIdCDTcharStartVuserEditablecharEndmessage3TODO create state here, as no need to do further uppriority
+lineNumberxj2sourceIdCDTcharStart%userEditablecharEnd&-message2TODO Test once initial board verification completepriority
+lineNumberxj3sourceIdCDTcharStart'userEditablecharEnd'message2TODO Test once initial board verification completepriority
+lineNumber(xj4sourceIdCDTcharStartZcuserEditablecharEndZmessage2TODO need to verify this setting with verificationpriority
+lineNumber{xj5sourceIdCDTcharStart^userEditablecharEnd_message:TODO remove this software workaround as no longer requiredpriority
+lineNumberxj6sourceIdCDTcharStartbDuserEditablecharEndbmessage=TODO replace with Libero settings below, once values verifiedpriority
+lineNumberxj7sourceIdCDTcharStartuuserEditablecharEnduQmessageCTODO Do we need to add Pu/PD option for off mode to Libero setting?priority
+lineNumber=xj8sourceIdCDTcharStart]userEditablecharEnd}messageTODO review, add in if requiredpriority
+lineNumber
+'xj9sourceIdCDTcharStarthuserEditablecharEndmessage2TODO Test once initial board verification completepriority
+lineNumberxj:sourceIdCDTcharStartuserEditablecharEnd1message+TODO obtain data width from user parameterspriority
+lineNumberxj;sourceIdCDTcharStartuserEditablecharEndmessage2TODO Test once initial board verification completepriority
+lineNumberxj<sourceIdCDTcharStartuserEditablecharEndmessage+TODO obtain data width from user paramaterspriority
+lineNumberYxj=sourceIdCDTcharStart4userEditablecharEnd]message(TODO Add user input as to option to use?priority
+lineNumberxj>sourceIdCDTcharStartuserEditablecharEndmessage0TODO Check NWL data and detail error states herepriority
+lineNumbergxj?sourceIdCDTcharStarthuserEditablecharEndmessage<TODO add support for diagnostics below during board bring-uppriority
+lineNumberxj@sourceIdCDTcharStartRuserEditablecharEndwmessage$TODO Define number of request inputspriority
+lineNumberxjAsourceIdCDTcharStartuserEditablecharEndSmessage<TODO Detail on the sharing of data will be system dependent.priority
+lineNumberxjBsourceIdCDTcharStartuserEditablecharEndmessageTODO Define error codes.priority
+lineNumberxjCsourceIdCDTcharStartWuserEditablecharEnd`messageTODO WIPpriority
+lineNumberxjC/mpfs-hal-coremark/src/platform/mpfs_hal/common/nwc/mss_ddr_debug.cDsourceIdCDTcharStarta=userEditablecharEndaYmessageTODO may add detail to failpriority
+lineNumberxjL/mpfs-hal-coremark/src/platform/mpfs_hal/common/nwc/mss_ddr_sgmii_phy_defs.h+sourceIdCDTcharStartZuserEditablecharEndZmessage?TODO verify should be r/w, it is not in source file from Duologpriority
+lineNumberxj,sourceIdCDTcharStart`UuserEditablecharEnd`smessageTODO verify if should be __IOpriority
+lineNumberxjB/mpfs-hal-coremark/src/platform/mpfs_hal/common/nwc/mss_nwc_init.cFsourceIdCDTcharStart5userEditablecharEnd6$message$TODO make delay function clock basedpriority
+lineNumberyxj EsourceIdCDTcharStart4userEditablecharEnd4message5TODO remove, just for sim test ddr_recalib_io_test();priority
+lineNumberhxjB/mpfs-hal-coremark/src/platform/mpfs_hal/common/nwc/mss_nwc_init.hHsourceIdCDTcharStartuserEditablecharEndmessage4TODO This needs to be confirmed as OK, there will bepriority
+lineNumberlxj IsourceIdCDTcharStart1userEditablecharEndEmessageTODO review settingpriority
+lineNumberoxj GsourceIdCDTcharStart4userEditablecharEnd_message*TODO remove, added line here as test *****priority
+lineNumber$xj =/mpfs-hal-coremark/src/platform/mpfs_hal/common/nwc/mss_pll.cKsourceIdCDTcharStartAuserEditablecharEndAmessageTODO make wait clock basedpriority
+lineNumberxj!LsourceIdCDTcharStartBuserEditablecharEndBmessageTODO add failure modepriority
+lineNumberxj!MsourceIdCDTcharStartOcuserEditablecharEndOmessageTODO verify this is correctpriority
+lineNumber;xj!?/mpfs-hal-coremark/src/platform/mpfs_hal/common/nwc/mss_sgmii.cPsourceIdCDTcharStartRuserEditablecharEndRRmessage7TODO implement proper timer- user will supply ramp timepriority
+lineNumberUxj"QsourceIdCDTcharStart_userEditablecharEnd_QmessageCFIXME this appears to cause wite calibration to fail, investigatingpriority
+lineNumberxj"NsourceIdCDTcharStartuserEditablecharEnd*message6FIXME - not sure if we should be setting this registerpriority
+lineNumberxj"OsourceIdCDTcharStartPzuserEditablecharEndPmessageTODO add a fail breakpriority
+lineNumberHxj"@/mpfs-hal-coremark/src/platform/mpfs_hal/common/nwc/simulation.hJsourceIdCDTcharStartuserEditablecharEndmessage2TODO remove this file before customer distributionpriority
+lineNumberxj C/mpfs-hal-coremark/src/platform/mpfs_hal/startup_gcc/newlib_stubs.cRsourceIdCDTcharStartPuserEditablecharEndmessagePFIXME - this test needs to be reworked to take account of multiple harts and TLSpriority
+lineNumber xj#E/mpfs-hal-coremark/src/platform/mpfs_hal/startup_gcc/system_startup.cSsourceIdCDTcharStart5userEditablecharEnd5message TODO used during testing, removepriority
+lineNumberxj#R/mpfs-hal-coremark/src/platform/platform_config_reference/mpfs_hal/mss_sw_config.hTsourceIdCDTcharStart;userEditablecharEndumessage9TODO verify with Alister if these need to added to Liberopriority
+lineNumberxj%
