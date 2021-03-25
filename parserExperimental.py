@@ -19,7 +19,8 @@ def main():
         matches = line.split(r'TODO')
         todo_info = matches[0]
         file_path = re.search(r'mpfs.*(?=org)', todo_info)
-        print(file_path.group())
+        line_number = re.search(r'lineNumber.*(?=\/mpfs)', todo_info).split(r'lineNumber')[1]
+        print(file_path.group() + '[' + line_number + ']')
         todo_message = matches[1]
         print(todo_message)
       if ('fatal error' in line):
