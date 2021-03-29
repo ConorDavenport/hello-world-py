@@ -1,5 +1,6 @@
 import sys
 import re
+import json
 
 def main():
   data_string = ""
@@ -10,8 +11,8 @@ def main():
         data_string += character
 
   data_string_unicode = data_string.encode('utf-8')
-  with open("markers", "w") as f:
-    clean_data = ''
+  with open("markers.json", "w") as f:
+    clean_data = []
     prev_file_path = ''
     for line in data_string_unicode.splitlines():
       if ('TODO' in line):
@@ -34,16 +35,16 @@ def main():
           if search_line_number != None:
             line_number = search_line_number.group()
 
-        todo_path = 'TODO ' + file_path + '[' + line_number + ']\n'
+        todo_path = 'TODO ' + file_path + '[' + line_number + ']'
         print(todo_path)
-        f.write(todo_path)
 
         todo_message = matches[1]
         if re.search(r'priority$', todo_message) != None:
           todo_message = re.split(r'priority$', todo_message)[0]
 
         print(todo_message)
-        f.write(todo_message + '\n')
+
+        clean_data.append({'path':todo_path, 'message':todo_message})
 
       if ('fatal error' in line):
         matches = line.split(r'fatal error: ')
@@ -61,13 +62,15 @@ def main():
         if search_line_number != None:
           line_number = search_line_number.group()
 
-        error_path = 'ERROR ' + file_path + '[' + line_number + ']\n'
+        error_path = 'ERROR ' + file_path + '[' + line_number + ']'
         print(error_path)
-        f.write(error_path)
 
         error_message = matches[1]
         print(error_message)
-        f.write(error_message + '\n')
+
+        clean_data.append({'path':error_path, 'message':error_message})
+
+    json.dump(clean_data, f)
 
 if __name__ == "__main__":
   main()
