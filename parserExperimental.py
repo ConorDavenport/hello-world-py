@@ -34,7 +34,7 @@ def main():
           if search_line_number != None:
             line_number = search_line_number.group()
 
-        todo_path = 'TODO ' + file_path + '[' + line_number + ']'
+        todo_path = 'TODO ' + file_path + '[' + line_number + ']\n'
         print(todo_path)
         f.write(todo_path)
 
@@ -43,7 +43,7 @@ def main():
           todo_message = re.split(r'priority$', todo_message)[0]
 
         print(todo_message)
-        f.write(todo_message)
+        f.write(todo_message + '\n')
 
       if ('fatal error' in line):
         matches = line.split(r'fatal error: ')
@@ -61,13 +61,13 @@ def main():
         if search_line_number != None:
           line_number = search_line_number.group()
 
-        error_path = 'ERROR ' + file_path + '[' + line_number + ']'
+        error_path = 'ERROR ' + file_path + '[' + line_number + ']\n'
         print(error_path)
         f.write(error_path)
 
         error_message = matches[1]
         print(error_message)
-        f.write(error_message)
+        f.write(error_message + '\n')
 
 if __name__ == "__main__":
   main()
