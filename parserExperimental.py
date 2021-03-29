@@ -13,28 +13,54 @@ def main():
   with open("markers", "w") as f:
     f.write(data_string_unicode)
 
+  prev_file_path = ''
   with open ("markers", "r") as markers:
     for line in markers.readlines():
-      if ('TODO' in line and 'mpfs_hal' in line):
+      if ('TODO' in line):
         matches = line.split(r'TODO ')
+
         todo_info = matches[0]
-        file_path = re.search(r'mpfs.*?\..', todo_info)
-        if 'lineNumber' in todo_info:
-          line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', todo_info).group()
+
+        file_path = prev_file_path
+        search_file_path = re.search(r'mpfs.*?\..', todo_info)
+        if search_file_path != None:
+          file_path = search_file_path.group()
+          prev_file_path = file_path
+
+        line_number = ''
+        search_line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', todo_info)
+        if search_line_number != None:
+          line_number = search_line_number.group()
         else:
-          line_number = ''
-        print('TODO ' + file_path.group() + '[' + line_number + ']')
+          search_line_number = re.search(r'(?<=lineNumber).*?(?=source)', todo_info)
+          if search_line_number != None:
+            line_number = search_line_number.group()
+
+        print('TODO ' + file_path + '[' + line_number + ']')
+
         todo_message = matches[1]
+        if re.search(r'priority$', todo_message) != None:
+          todo_message = re.split(r'priority$', todo_message)[0]
+
         print(todo_message)
-      if ('fatal error' in line and 'mpfs' in line):
+      if ('fatal error' in line):
         matches = line.split(r'fatal error: ')
+
         error_info = matches[0]
-        file_path = re.search(r'mpfs.*?\..', error_info)
-        if 'lineNumber' in error_info:
-          line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', error_info).group()
-        else:
-          line_number = ''
-        print('ERROR ' + file_path.group() + '[' + line_number + ']')
+
+        file_path = prev_file_path
+        search_file_path = re.search(r'mpfs.*?\..', error_info)
+        if search_file_path != None:
+          file_path = search_file_path.group()
+          prev_file_path = file_path
+
+        line_number = ''
+        search_line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', error_info)
+        if search_line_number != None:
+          line_number = search_line_number.group()
+
+        print('ERROR ' + file_path + '[' + line_number + ']')
+
         error_message = matches[1]
         print(error_message)
 
