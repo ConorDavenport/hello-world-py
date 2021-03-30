@@ -7,7 +7,9 @@ def getFilePath(prev_file_path, info):
   search_file_path = re.search(r'mpfs.*?\..', info)
   if search_file_path != None:
     file_path = search_file_path.group()
-  return file_path
+    return file_path
+  else:
+    return prev_file_path
 
 def main():
   data_string = ""
