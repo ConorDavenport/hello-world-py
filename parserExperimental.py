@@ -1,10 +1,10 @@
 import sys
 import re
 import json
-import repoParts
+import repoParts 
 
 def main():
-  driver = repoParts.main(sys.argv[2])
+  driver = repoParts.getDriverPath(sys.argv[2])
   data_string = ""
   with open(sys.argv[1], "rb") as f:
     data = f.read()
