@@ -28,7 +28,7 @@ def main():
 
         todo_info = matches[0]
 
-        [file_path, prev_file_path] = getFilePath(prev_file_path, todo_info)
+        file_path, prev_file_path = getFilePath(prev_file_path, todo_info)
 
         line_number = ''
         search_line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', todo_info)
@@ -55,7 +55,7 @@ def main():
 
         error_info = matches[0]
 
-        [file_path, prev_file_path] = getFilePath(prev_file_path, error_info)
+        file_path, prev_file_path = getFilePath(prev_file_path, error_info)
 
         line_number = ''
         search_line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', error_info)
