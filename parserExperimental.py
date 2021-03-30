@@ -18,7 +18,7 @@ def main():
     clean_data = []
     prev_file_path = ''
     for line in data_string_unicode.splitlines():
-      if ('TODO' in line):
+      if ('TODO' in line and driver in line):
         matches = line.split(r'TODO ')
 
         todo_info = matches[0]
