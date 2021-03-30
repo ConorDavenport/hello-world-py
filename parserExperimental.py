@@ -1,19 +1,15 @@
 import sys
 import re
 import json
-import repoParts 
+
+def getFilePath(file_path, prev_file_path, info):
+  file_path = prev_file_path
+  search_file_path = re.search(r'mpfs.*?\..', info)
+  if search_file_path != None:
+    file_path = search_file_path.group()
+    prev_file_path = file_path
 
 def main():
-  driverPath = repoParts.getDriverPath(sys.argv[2])
-  driver = ''
-  search_driver = re.search(r'(?<=\/).*', driverPath)
-  if search_driver == None:
-    search_driver = re.search(r'(?<=:)(?:.(?!:))+$', driverPath)
-    if search_driver != None:
-      driver = search_driver.group()
-  else:
-    driver = search_driver.group()
-
   data_string = ""
   with open(sys.argv[1], "rb") as f:
     data = f.read()
@@ -26,16 +22,12 @@ def main():
     clean_data = []
     prev_file_path = ''
     for line in data_string_unicode.splitlines():
-      if ('TODO' in line and driver in line):
+      if ('TODO' in line):
         matches = line.split(r'TODO ')
 
         todo_info = matches[0]
 
-        file_path = prev_file_path
-        search_file_path = re.search(r'mpfs.*?\..', todo_info)
-        if search_file_path != None:
-          file_path = search_file_path.group()
-          prev_file_path = file_path
+        getFilePath(file_path, prev_file_path, todo_info)
 
         line_number = ''
         search_line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', todo_info)
@@ -62,11 +54,7 @@ def main():
 
         error_info = matches[0]
 
-        file_path = prev_file_path
-        search_file_path = re.search(r'mpfs.*?\..', error_info)
-        if search_file_path != None:
-          file_path = search_file_path.group()
-          prev_file_path = file_path
+        getFilePath(file_path, prev_file_path, error_info)
 
         line_number = ''
         search_line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', error_info)
