@@ -50,8 +50,7 @@ def getDriverPath(driver):
     }[driver]
 
 def main():
-    repoName = sys.argv[1]
-    return getDriverPath(repoName)
+    return getDriverPath(sys.argv[1])
 
 
 if __name__ =='__main__':
