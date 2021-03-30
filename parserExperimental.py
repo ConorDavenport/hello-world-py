@@ -25,6 +25,7 @@ def main():
     prev_file_path = ''
     for line in data_string_unicode.splitlines():
       if ('TODO' in line):
+        print(line)
         matches = line.split(r'TODO ')
 
         todo_info = matches[0]
