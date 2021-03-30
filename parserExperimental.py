@@ -1,7 +1,7 @@
 import sys
 import re
 import json
-import repoParts.py
+import repoParts
 
 def main():
   driver = repoParts.main(sys.argv[2])
