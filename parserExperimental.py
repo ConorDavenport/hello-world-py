@@ -4,7 +4,15 @@ import json
 import repoParts 
 
 def main():
-  driver = repoParts.getDriverPath(sys.argv[2])
+  driverPath = repoParts.getDriverPath(sys.argv[2])
+  driver = ''
+  search_driver = re.search(r'(?<=\/).*', driverPath)
+  if search_driver == None:
+    search_driver = re.search(r'(?<=:)(?:.(?!:))+$', driverPath)
+    if search_driver != None:
+      driver = search_driver.group()
+  else:
+    driver = search_driver.group()
   print(driver)
   data_string = ""
   with open(sys.argv[1], "rb") as f:
