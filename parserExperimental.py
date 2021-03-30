@@ -8,7 +8,7 @@ def getFilePath(prev_file_path, info):
   if search_file_path != None:
     file_path = search_file_path.group()
     prev_file_path = file_path
-  return file_path
+  return [file_path, prev_file_path]
 
 def main():
   data_string = ""
@@ -28,7 +28,7 @@ def main():
 
         todo_info = matches[0]
 
-        file_path = getFilePath(prev_file_path, todo_info)
+        [file_path, prev_file_path] = getFilePath(prev_file_path, todo_info)
 
         line_number = ''
         search_line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', todo_info)
@@ -55,7 +55,7 @@ def main():
 
         error_info = matches[0]
 
-        file_path = getFilePath(prev_file_path, error_info)
+        [file_path, prev_file_path] = getFilePath(prev_file_path, error_info)
 
         line_number = ''
         search_line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', error_info)
