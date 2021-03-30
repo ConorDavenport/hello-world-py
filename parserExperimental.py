@@ -13,7 +13,7 @@ def main():
       driver = search_driver.group()
   else:
     driver = search_driver.group()
-  print(driver)
+
   data_string = ""
   with open(sys.argv[1], "rb") as f:
     data = f.read()
