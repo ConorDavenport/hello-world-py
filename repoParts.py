@@ -1,3 +1,6 @@
+import os
+import sys
+
 # function to return a string that can be processed by Jenkins:
 # pinput is the repo name, output is a formated string that
 # Jenkins can parse. src tells Jenkins that it is a src repo
@@ -45,3 +48,10 @@ def getDriverPath(driver):
         'polarfire-soc-configuration-generator':"config:soc_config_generator:soc_config_generator",
         'h2':"==============================================================================",
     }[driver]
+
+def main():
+    return getDriverPath(sys.argv[1])
+
+
+if __name__ =='__main__':
+    main()
