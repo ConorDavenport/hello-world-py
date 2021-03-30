@@ -5,6 +5,7 @@ import repoParts
 
 def main():
   driver = repoParts.getDriverPath(sys.argv[2])
+  print(driver)
   data_string = ""
   with open(sys.argv[1], "rb") as f:
     data = f.read()
