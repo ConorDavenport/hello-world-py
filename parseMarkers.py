@@ -24,6 +24,7 @@ def main():
   with open(sys.argv[1], "rb") as f:
     data = f.read()
     for character in data:
+      print(type(data))
       if ((character >= '\x20' and character <= '\x7F') or character == '\x0A'):
         data_string += character
 
