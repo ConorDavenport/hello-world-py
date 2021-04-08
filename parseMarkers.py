@@ -23,6 +23,7 @@ def main():
   data_string = ""
   with open(sys.argv[1], "rb") as f:
     data = f.read()
+    print(data)
     for character in data:
       if ((character >= b'\x20' and character <= b'\x7F') or character == b'\x0A'):
         data_string += character
