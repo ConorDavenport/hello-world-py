@@ -12,6 +12,14 @@ def getFilePath(prev_file_path, info):
     return prev_file_path
 
 def main():
+  platform_entry = ""
+  # with open("bitbucket_project_description.json") as f:
+  #   data = json.load(f)
+  #   repositories = data["repositories"]
+  #   for repo in repositories:
+  #     if repo["name"] == sys.argv[2]:
+  #       platform_entry = repo["platform_entry"]
+
   data_string = ""
   with open(sys.argv[1], "rb") as f:
     data = f.read()
@@ -20,11 +28,13 @@ def main():
         data_string += character
 
   data_string_unicode = data_string.encode('utf-8')
+
   with open("markers.json", "w") as f:
     clean_data = []
     prev_file_path = ''
     for line in data_string_unicode.splitlines():
       if ('TODO' in line):
+      # if ('TODO' in line and platform_entry in line):
         matches = line.split(r'TODO ')
 
         todo_info = matches[0]
