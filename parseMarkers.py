@@ -26,7 +26,7 @@ def main():
     for character in data:
       print(type(data))
       print(type(b'\x20'))
-      if ((character >= '\x20' and character <= '\x7F') or character == '\x0A'):
+      if ((character >= b'\x20' and character <= b'\x7F') or character == b'\x0A'):
         data_string += character
 
   data_string_unicode = data_string.encode('utf-8')
