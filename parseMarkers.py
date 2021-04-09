@@ -25,6 +25,7 @@ def main():
     data = f.read()
     for character in data:
       print(type(data))
+      print(type(b'\x20'))
       if ((character >= '\x20' and character <= '\x7F') or character == '\x0A'):
         data_string += character
 
