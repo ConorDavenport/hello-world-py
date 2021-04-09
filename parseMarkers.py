@@ -25,11 +25,10 @@ def main():
     data = f.read()
     for character in data:
       if ((bytes(character) >= b'\x20' and bytes(character) <= b'\x7F') or bytes(character) == b'\x0A'):
+        print(character)
         data_string += character
 
   data_string_unicode = data_string.encode('utf-8')
-  print(data_string)
-  print(data_string_unicode)
   with open("markers.json", "w") as f:
     clean_data = []
     prev_file_path = ''
