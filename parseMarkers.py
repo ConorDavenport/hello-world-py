@@ -24,8 +24,9 @@ def main():
   with open(sys.argv[1], "rb") as f:
     data = f.read()
     for character in data:
-      if ((character >= b'\x20' and character <= b'\x7F') or character == b'\x0A'):
-        data_string += character
+      print(type(character))
+      # if ((character >= b'\x20' and character <= b'\x7F') or character == b'\x0A'):
+      #   data_string += character
 
   data_string_unicode = data_string.encode('utf-8')
   with open("markers.json", "w") as f:
