@@ -24,13 +24,12 @@ def main():
   with open(sys.argv[1], "rb") as f:
     data = f.read()
     for character in data:
-      print(type(bytes(character)))
-      print(type(b'\x20'))
       if ((bytes(character) >= b'\x20' and bytes(character) <= b'\x7F') or bytes(character) == b'\x0A'):
         data_string += character
 
   data_string_unicode = data_string.encode('utf-8')
-
+  print(data_string)
+  print(data_string_unicode)
   with open("markers.json", "w") as f:
     clean_data = []
     prev_file_path = ''
