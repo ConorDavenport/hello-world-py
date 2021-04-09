@@ -24,6 +24,7 @@ def main():
   with open(sys.argv[1], "rb") as f:
     data = f.read()
     for character in data:
+      print(character)
       character_byte = bytes(character,'utf-8')
       if ((character_byte >= b'\x20' and character_byte <= b'\x7F') or character_byte == b'\x0A'):
         data_string += character
