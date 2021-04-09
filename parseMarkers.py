@@ -25,7 +25,7 @@ def main():
     data = f.read()
     for character in data:
       if ((character >= 32 and character <= 127) or character == 10):
-        data_string += str(character)
+        data_string += str(character).decode('utf-8')
   print(data_string)
   data_string_unicode = data_string.encode('utf-8')
   with open("markers.json", "w") as f:
