@@ -24,8 +24,8 @@ def main():
   with open(sys.argv[1], "rb") as f:
     data = f.read()
     for character in data:
+      print(bytes(character))
       if ((bytes(character) >= b'\x20' and bytes(character) <= b'\x7F') or bytes(character) == b'\x0A'):
-        print(character)
         data_string += character
 
   data_string_unicode = data_string.encode('utf-8')
