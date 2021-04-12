@@ -1,0 +1,81 @@
+import sys
+import re
+import json
+
+# get the file path for the todo/error
+def getFilePath(prev_file_path, info):
+  search_file_path = re.search(r'mpfs.*?\..', info)
+  if search_file_path != None:
+    file_path = search_file_path.group()
+    return file_path
+  else:
+    # consecutive todos/errors from the same file don't contain
+    # the file path in the log file, return the file path
+    # of the previously processed todo/error
+    return prev_file_path
+
+def main():
+  sys.stdout.flush()
+  clean_data = []
+  with open(sys.argv[1], "rb") as f:
+    data = f.readlines()
+    for line in data:
+      # remove illegal characters
+      line_decoded = line.decode('utf-8','replace')
+      # remove characers that aren't alphanumeric, certain punctuation
+      # or space
+      clean_line = re.sub(r'[^A-Za-z0-9/\-. ]+', '', line_decoded)
+      clean_data.append(clean_line)
+
+  with open("markers.json", "w") as f:
+    formatted_data = []
+    prev_file_path = ''
+    for line in clean_data:
+      if ('TODO' in line):
+        matches = line.split(r'TODO ')
+
+        todo_info = matches[0]
+        file_path = getFilePath(prev_file_path, todo_info)
+        if file_path != prev_file_path: prev_file_path = file_path
+
+        line_number = ''
+        search_line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', todo_info)
+        if search_line_number != None:
+          line_number = search_line_number.group()
+        else:
+          search_line_number = re.search(r'(?<=lineNumber).*?(?=source)', todo_info)
+          if search_line_number != None:
+            line_number = search_line_number.group()
+
+        todo_path = 'TODO ' + file_path + '[' + line_number + ']'
+
+        # remove trailing 'priority' from todo message
+        todo_message = matches[1]
+        if re.search(r'priority$', todo_message) != None:
+          todo_message = re.split(r'priority$', todo_message)[0]
+
+        formatted_data.append({'path':todo_path, 'message':todo_message})
+
+      if ('fatal error' in line):
+        matches = line.split(r'fatal error: ')
+
+        error_info = matches[0]
+
+        file_path = getFilePath(prev_file_path, error_info)
+        if file_path != prev_file_path: prev_file_path = file_path
+
+        line_number = ''
+        search_line_number = re.search(r'(?<=lineNumber).*?(?=\/mpfs)', error_info)
+        if search_line_number != None:
+          line_number = search_line_number.group()
+
+        error_path = 'ERROR ' + file_path + '[' + line_number + ']'
+
+        error_message = matches[1]
+
+        formatted_data.append({'path':error_path, 'message':error_message})
+
+    json.dump(formatted_data, f)
+
+if __name__ == "__main__":
+  main()
