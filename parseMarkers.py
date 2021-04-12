@@ -16,6 +16,14 @@ def getFilePath(prev_file_path, info):
 
 def main():
   sys.stdout.flush()
+  platform_entry = ""
+  with open("bitbucket_project_description.json") as f:
+    data = json.load(f)
+    repositories = data["repositories"]
+    for repo in repositories:
+      if repo["name"] == sys.argv[2]:
+        platform_entry = repo["platform_entry"]
+
   clean_data = []
   with open(sys.argv[1], "rb") as f:
     data = f.readlines()
@@ -31,7 +39,7 @@ def main():
     formatted_data = []
     prev_file_path = ''
     for line in clean_data:
-      if ('TODO' in line):
+      if ('TODO' in line and platform_entry in line):
         matches = line.split(r'TODO ')
 
         todo_info = matches[0]
@@ -48,11 +56,13 @@ def main():
             line_number = search_line_number.group()
 
         todo_path = 'TODO ' + file_path + '[' + line_number + ']'
-
+        print(todo_path)
         # remove trailing 'priority' from todo message
         todo_message = matches[1]
         if re.search(r'priority$', todo_message) != None:
           todo_message = re.split(r'priority$', todo_message)[0]
+
+        print(todo_message)
 
         formatted_data.append({'path':todo_path, 'message':todo_message})
 
@@ -70,9 +80,9 @@ def main():
           line_number = search_line_number.group()
 
         error_path = 'ERROR ' + file_path + '[' + line_number + ']'
-
+        print(error_path)
         error_message = matches[1]
-
+        print(error_message)
         formatted_data.append({'path':error_path, 'message':error_message})
 
     json.dump(formatted_data, f)
