@@ -37,6 +37,7 @@ def main():
       # remove characers that aren't alphanumeric, certain punctuation
       # or space
       clean_line = re.sub(r'[^A-Za-z0-9/\-. ]+', '', line_decoded)
+      print(clean_line)
       clean_data.append(clean_line)
 
   with open("markers.json", "w") as f:
@@ -94,7 +95,7 @@ def main():
 
         formatted_data.append({'path':error_path, 'message':error_message})
 
-    json.dump(formatted_data, f)
+    json.dump(clean_data, f)
 
 if __name__ == "__main__":
   main()
