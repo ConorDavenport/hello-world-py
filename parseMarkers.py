@@ -94,7 +94,7 @@ def main():
 
         formatted_data.append({'path':error_path, 'message':error_message})
 
-    json.dump(clean_data, f)
+    json.dump(formatted_data, f)
 
 if __name__ == "__main__":
   main()
