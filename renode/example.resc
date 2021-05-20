@@ -1,0 +1,17 @@
+using sysbus
+mach create
+
+machine LoadPlatformDescription @C:\Microchip\SoftConsole-v6.5\renode\platforms\cpus\polarfire-soc.repl
+
+sysbus LoadELF @C:\Microchip\SoftConsole-v6.5\extras\home\mpfs-fabric-memory-access\Debug\mpfs-lsram.elf
+
+logLevel 3
+
+logFile @C:\Users\M63909\Documents\bitbucket\sandbox-conor-davenport\renode\log.txt
+
+start
+
+mmuart0 ReadDoubleWord 0x600000000
+
+pause
+quit
