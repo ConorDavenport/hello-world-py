@@ -1,13 +1,13 @@
 using sysbus
 mach create
 
-machine LoadPlatformDescription @C:\Microchip\SoftConsole-v6.5\renode\platforms\cpus\polarfire-soc.repl
+machine LoadPlatformDescription @polarfire-soc.repl
 
-sysbus LoadELF @C:\Microchip\SoftConsole-v6.5\extras\home\mpfs-fabric-memory-access\Debug\mpfs-lsram.elf
+sysbus LoadELF @mpfs-fabric-memory-access/Debug/mpfs-lsram.elf
 
 logLevel 3
 
-logFile @C:\Users\M63909\Documents\bitbucket\sandbox-conor-davenport\renode\log.txt
+logFile @log.txt
 
 start
 
