@@ -5,7 +5,7 @@ machine LoadPlatformDescription @polarfire-soc.repl
 
 sysbus LoadELF @mpfs-fabric-memory-access/Debug/mpfs-lsram.elf
 
-logLevel 3
+logLevel -1
 
 logFile @log.txt
 
