@@ -10,8 +10,5 @@ logLevel 3
 logFile @log.txt
 
 start
-
-mmuart0 ReadDoubleWord 0x600000000
-
 pause
 quit
