@@ -1,12 +1,15 @@
 :name: PolarFire SoC
 :description: This is a sample script prepared to create a PolarFire SoC platform
 
+logLevel 3
+logFile @log.txt
+
 $bin?=@https://dl.antmicro.com/projects/renode/pse-freertos-lwip.elf-s_1413416-f348e11b20bd1a8cb24c39e888cf6430e4ee4035
 
 using sysbus
 mach create
 
-machine LoadPlatformDescription @platforms/cpus/polarfire-soc.repl
+machine LoadPlatformDescription @polarfire-soc.repl
 
 showAnalyzer mmuart0
 
