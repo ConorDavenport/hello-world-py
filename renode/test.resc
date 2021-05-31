@@ -11,8 +11,6 @@ mach create
 
 machine LoadPlatformDescription @polarfire-soc.repl
 
-showAnalyzer mmuart0
-
 macro reset
 """
    sysbus LoadELF $bin
