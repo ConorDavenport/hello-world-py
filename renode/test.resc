@@ -11,14 +11,11 @@ mach create
 
 machine LoadPlatformDescription @polarfire-soc.repl
 
-macro reset
-"""
-   sysbus LoadELF $bin
-   start
-   mmuart0 ReadDoubleWord 0x600000000
-   quit
-"""
-runMacro $reset
+sysbus LoadELF $bin
+start
+mmuart0 ReadDoubleWord 0x600000000
+quit
+
 
 ## Alternatively, to start GDB and load from SoftConsole:
 # machine StartGdbServer 3333 true
