@@ -17,6 +17,8 @@ macro reset
 """
 runMacro $reset
 
+start
+
 ## Alternatively, to start GDB and load from SoftConsole:
 # machine StartGdbServer 3333 true
 ## Remember! After the connection is done and the binary is loaded, you have to issue:
